@@ -13,25 +13,23 @@ const showProducts = (products) => {
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("product");
-    div.innerHTML = `
-      <div class="single-product bg-white">
-        <div>
-          <img class=" product-image" src=${image}></img>
-        </div>
-        <h4>${product.title}</h4>
-        <p>Category: ${product.category}</p>
-        <p>Rating: ${product.rating.rate} (${product.rating.count})</p>
-        <h2>Price: $ ${product.price}</h2>
-        <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-        <button id="details-btn" class="btn btn-primary" onClick="randerSingleProduct(${product.id})">Details</button>
+    div.innerHTML = `<div class="single-product bg-white">
+      <div>
+        <img class="product-image" src=${image}></img>
       </div>
-    `;
+      <h6>${product.title}</h6>
+      <p>Category: ${product.category}</p>
+      <p>Rating: ${product.rating.rate} (${product.rating.count})</p>
+      <h4>Price: $ ${product.price}</h4>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success"><i class="fa fa-shopping-cart"></i>  Add to cart</button>
+      <button onClick="renderSingleProduct(${product.id})" id="details-btn" class="btn btn-primary"><i class="fa fa-info-circle"></i> Details</button></div>
+      `;
     document.getElementById("all-products").appendChild(div);
   }
 };
 
-//rander single product
-const randerSingleProduct = (id) => {
+//render single product
+const renderSingleProduct = (id) => {
   const url = `https://fakestoreapi.com/products/${id}`;
   fetch(url)
     .then(res => res.json())
@@ -42,15 +40,14 @@ const showDetails = (data) => {
   document.getElementById('show-details-card').innerHTML = '';
   const div = document.createElement("div");
   div.classList.add("product");
-  div.innerHTML = `<div class="details-card text-center bg-white">
+  div.innerHTML = `<div class="details-card bg-white mb-3">
       <div>
         <img class="product-image" src=${data.image}></img>
       </div>
-      <h3>${data.title}</h3>
+      <h4>${data.title}</h4>
       <h6>Price: ${data.price}</h6>
       <p>Rating: ${data.rating.rate} (${data.rating.count})</p>
       <p><small>${data.description}</small></p>
-      
       `;
   document.getElementById("show-details-card").appendChild(div);
 };
@@ -102,7 +99,9 @@ const updateTaxAndCharge = () => {
 
 //grandTotal update function
 const updateTotal = () => {
-  const grandTotal = getInputValue("price") + getInputValue("delivery-charge") + getInputValue("total-tax");
+  const grandTotal =
+    getInputValue("price") + getInputValue("delivery-charge") +
+    getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
 
