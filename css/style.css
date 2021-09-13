@@ -42,7 +42,7 @@ input[type="search"] {
   padding: 10px;
   margin: 5px;
   transition: 0.6s;
-  height: 400px;
+  height: 500px;
   border-radius: 10px;
   border: 1px solid rgba(100, 98, 98, 0.233);
 }
