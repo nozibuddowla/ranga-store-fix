@@ -2,6 +2,9 @@ body {
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
 }
+main{
+  background-color: #edeef6;
+}
 input[type="search"] {
   border-radius: 50px;
   outline: none;
@@ -68,6 +71,9 @@ input[type="search"] {
 }
 .cart-main {
   padding-right: 30px;
+}
+.modal-container{
+  display: none;
 }
 @media only screen and (max-width: 768px) {
   #all-products {
