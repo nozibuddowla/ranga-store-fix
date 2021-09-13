@@ -42,7 +42,7 @@ const showDetails = (data) => {
   document.getElementById('show-details-card').innerHTML = '';
   const div = document.createElement("div");
   div.classList.add("product");
-  div.innerHTML = `<div class="details-card border border-secondary rounded-3 shadow-lg text-center p-3 m-5 bg-white">
+  div.innerHTML = `<div class="details-card text-center bg-white">
       <div>
         <img class="product-image" src=${data.image}></img>
       </div>
