@@ -32,6 +32,9 @@ input[type="search"] {
   border-radius: 50px !important;
   width: 130px;
 }
+.btn-outline-success:hover {
+    background-color: #198754 !important;
+}
 #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
